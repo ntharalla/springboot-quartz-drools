@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource # overriding default hikari
+    driver-class-name: "org.postgresql.Driver"
+    url: "jdbc:postgresql://localhost:5432/starter"
+    username: "starter"
+    password: "starter"
+    tomcat:
+      fairQueue: true
+      jmx-enabled: false
+      initialSize: 5
+      maxActive: 10
+      maxIdle: 10
+      testOnBorrow: true
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 60000
+      validationQuery: "select 1"
+      validationQueryTimeout: 10
+      maxWait: 30000
+  #scheduler:
+  #  nncrQncr.cronExpression: 0 0 0/1 * * ?" # every hour
+    
+    #"0 */5 * * * ?" # every 5 minutes
+    # "0 0 5 * * ?" # 5 AM
+    # "0 */30 * * * ?" # every 30 minutes
+    # "0 0 0/1 * * ?" # every hour
+    # "0 0 9 ? * MON" # 9:00 am every Monday

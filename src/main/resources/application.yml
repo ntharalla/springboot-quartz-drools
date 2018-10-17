@@ -1,0 +1,33 @@
+spring:
+  jmx.enabled: false
+  jpa:
+    generate-ddl: false
+    hibernate.ddl-auto: none
+    show-sql: true
+    properties.hibernate:
+      # disables annoying non-error in logs from hibernate
+      jdbc.lob.non_contextual_creation: true
+      # register custom PostgreSQL dialect that supports jsonb
+      dialect: org.hibernate.dialect.PostgreSQL95Dialect
+      current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+  data.jpa.repositories.enabled: true
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource # overriding default hikari
+    driver-class-name: "org.postgresql.Driver"
+    url: "jdbc:postgresql://localhost:5432/starter"
+    username: "starter"
+    password: "starter"
+    tomcat:
+      fairQueue: true
+      jmx-enabled: false
+      initialSize: 5
+      maxActive: 10
+      maxIdle: 10
+      testOnBorrow: true
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 60000
+      validationQuery: "select 1"
+      validationQueryTimeout: 10
+      maxWait: 30000
+  
+  
